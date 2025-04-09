@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přidat knihu</title>
+    <title>Přidat boxera</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -16,7 +16,7 @@
     <div class="container mt-5">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Knihovna</a>
+                <a class="navbar-brand" href="#">Seznam</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
                     <span class="navbar-toggler-icon"></span>
@@ -24,10 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
+                            <a class="nav-link" href="../../views/records/boxrec_create.php">Přidat boxera</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/books_list.php">Výpis knih</a>
+                            <a class="nav-link" href="../../controllers/boxrec_list.php">Výpis boxerů</a>
                         </li>
                     </ul>
                 </div>
@@ -37,54 +37,49 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
-                        <h2>Přidat novou knihu</h2>
+                        <h2>Přidat nového boxera</h2>
                     </div>
                     <div class="card-body">
-                        <form action="../../controllers/BookController.php" method="post" enctype="multipart/form-data">
+                        <form action="../../controllers/BoxRecController.php" method="post" enctype="multipart/form-data">
                             
                             <div class="mb-3">
-                                <label for="title" class="form-label">Název knihy: <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="title" class="form-control" required>
+                                <label for="name" class="form-label">Jméno: <span class="text-danger">*</span></label>
+                                <input type="text" id="name" name="name" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="author" class="form-label">Autor: <span class="text-danger">*</span></label>
-                                <input type="text" id="author" name="author" class="form-control" required>
+                                <label for="surname" class="form-label">Přijmení: <span class="text-danger">*</span></label>
+                                <input type="text" id="surname" name="surname" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="category" class="form-label">Kategorie:</label>
-                                <input type="text" id="category" name="category" class="form-control">
+                                <label for="birthday" class="form-label">Narození (rrrr-mm-dd): <span class="text-danger">*</span></label>
+                                <input type="text" id="birthday" name="birthday" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="subcategory" class="form-label">Podkategorie:</label>
-                                <input type="text" id="subcategory" name="subcategory" class="form-control">
+                                <label for="gender" class="form-label">Pohlaví: <span class="text-danger">*</span></label>
+                                <input type="text" id="gender" name="gender" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="year" class="form-label">Rok vydání: <span class="text-danger">*</span></label>
-                                <input type="number" id="year" name="year" class="form-control" required>
+                                <label for="division" class="form-label">Váhová kategorie: <span class="text-danger">*</span></label>
+                                <input type="text" id="division" name="division" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="price" class="form-label">Cena: <span class="text-danger">*</span></label>
-                                <input type="number" id="price" name="price" class="form-control" step="0.01" required>
+                                <label for="wins" class="form-label">Počet výher: <span class="text-danger">*</span></label>
+                                <input type="number" id="wins" name="wins" class="form-control" step="1" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="isbn" class="form-label">ISBN: <span class="text-danger">*</span></label>
-                                <input type="text" id="isbn" name="isbn" class="form-control" required>
+                                <label for="losses" class="form-label">Počet proher: <span class="text-danger">*</span></label>
+                                <input type="number" id="losses" name="losses" class="form-control" step="1" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="description" class="form-label">Popis:</label>
-                                <textarea id="description" name="description" class="form-control" rows="3"></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="link" class="form-label">Odkaz:</label>
-                                <input type="url" id="link" name="link" class="form-control">
+                                <label for="ties" class="form-label">Počet remíz: <span class="text-danger">*</span></label>
+                                <input type="number" id="ties" name="ties" class="form-control" step="1" required>
                             </div>
 
                             <div class="mb-3">
@@ -92,7 +87,7 @@
                                 <input type="file" id="images" name="images[]" class="form-control" multiple accept="image/*">
                             </div>
 
-                            <button type="submit" class="btn btn-success w-100">Uložit knihu</button>
+                            <button type="submit" class="btn btn-success w-100">Uložit údaje</button>
                         </form>
                     </div>
                 </div>

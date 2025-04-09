@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přidat knihu</title>
+    <title>Přidat boxera</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -16,7 +16,7 @@
     <div class="container mt-5">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Knihovna</a>
+                <a class="navbar-brand" href="#">Seznam</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
                     <span class="navbar-toggler-icon"></span>
@@ -24,42 +24,46 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
+                            <a class="nav-link" href="../../views/records/boxrec_create.php">Přidat boxera</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/books_list.php">Výpis knih</a>
+                            <a class="nav-link" href="../../controllers/boxrec_list.php">Výpis boxerů</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!--<h2>Výpis knih</h2>-->
-        <?php if(!empty($books)): ?>
+        <!--<h2>Výpis boxerů</h2>-->
+        <?php if(!empty($boxrec)): ?>
             <!--<h3>Hrubý výpis</h3>-->
-            <?php //var_dump($books); ?>
-            <!--<h3>Lepší výpis knih</h3>-->
-            <pre><?php //print_r($books); ?></pre>
-            <h3>Tabulkový výpis knih</h3>
+            <?php //var_dump($boxrec); ?>
+            <!--<h3>Lepší výpis boxerů</h3>-->
+            <pre><?php //print_r($boxrec); ?></pre>
+            <h3>Tabulkový výpis boxerů</h3>
             <table class="table table-bordered table-hover">
                 <thead class="table-primary">
                     <tr>
-                        <th>Název</th>
-                        <th>Autor</th>
-                        <th>Kategorie</th>
-                        <th>Rok</th>
-                        <th>Cena</th>
-                        <th>ISBN</th>
+                        <th>Jméno</th>
+                        <th>Přijmení</th>
+                        <th>Datum narození</th>
+                        <th>Pohlaví</th>
+                        <th>Váhová kategorie</th>
+                        <th>Výhry</th>
+                        <th>Prohry</th>
+                        <th>Remízy</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($books as $book): ?>
+                    <?php foreach($boxrec as $record): ?>
                         <tr>
-                        <td><?= htmlspecialchars($book['title'])?></td>
-                        <td><?= htmlspecialchars($book['author'])?></td>
-                        <td><?= htmlspecialchars($book['category'])?></td>
-                        <td><?= htmlspecialchars($book['year'])?></td>
-                        <td><?= htmlspecialchars($book['price'])?></td>
-                        <td><?= htmlspecialchars($book['isbn'])?></td>
+                        <td><?= htmlspecialchars($record['name'])?></td>
+                        <td><?= htmlspecialchars($record['surname'])?></td>
+                        <td><?= htmlspecialchars($record['birthday'])?></td>
+                        <td><?= htmlspecialchars($record['gender'])?></td>
+                        <td><?= htmlspecialchars($record['division'])?></td>
+                        <td><?= htmlspecialchars($record['wins'])?></td>
+                        <td><?= htmlspecialchars($record['losses'])?></td>
+                        <td><?= htmlspecialchars($record['ties'])?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -69,7 +73,7 @@
 
 
         <?php else: ?>
-            <div class="alert alert-info">Žádná kniha nebyla nalezena</div>
+            <div class="alert alert-info">Žádný boxer nebyl nalezen</div>
         <?php endif;?>
     </div>
 
