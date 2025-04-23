@@ -23,10 +23,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../views/books/book_create.php">Přidat knihu</a>
+                            <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Výpis knih</a>
+                            <a class="nav-link" href="../../controllers/book_list.php">Výpis knih</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../views/auth/register.php">Registrace</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../views/auth/login.php">Přihlášení</a>
                         </li>
                     </ul>
                 </div>
